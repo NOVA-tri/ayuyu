@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Penjajahan Belanda di Indonesia (350 Tahun)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        header {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        nav {
+            background: #ff6b35;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav button {
+            background: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        nav button:hover, nav button.active {
+            background: #ff6b35;
+            color: white;
+            transform: scale(1.05);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: #ff6b35;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 1rem 2rem;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s;
+            width: 45%;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 5%;
+        }
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #ff6b35;
+            border: 4px solid white;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::after {
+            left: -10px;
+        }
+        .timeline-header {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-date {
+            color: #ff6b35;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .content {
+            display: none;
+            background: white;
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        footer {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .timeline::after { left: 30px; }
+            .timeline-item { width: calc(100% - 70px); left: 60px !important; }
+            .timeline-item::after { left: -10px !important; }
+            header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇳🇱 Sejarah Penjajahan Belanda di Indonesia</h1>
+        <p>350 Tahun Kekuasaan VOC & Hindia Belanda (1596-1949)</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('timeline')" class="active">Timeline</button>
+        <button onclick="showSection('awal')">Awal Penjajahan</button>
+        <button onclick="showSection('puncak')">Puncak Kekuasaan</button>
+        <button onclick="showSection('akhir')">Akhir Penjajahan</button>
+        <button onclick="showSection('dampak')">Dampak & Warisan</button>
+    </nav>
+
+    <div class="container">
+        <div id="timeline-section" class="content active">
+            <h2 style="text-align: center; color: #1e3c72; margin-bottom: 2rem;">Timeline Penjajahan Belanda</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">350</div>
+                    <div>Tahun Penjajahan</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1619</div>
+                    <div>Berdirinya Batavia</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1942</div>
+                    <div>Invasi Jepang</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1949</div>
+                    <div>KTTK/RIS</div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-year="1596">
+                    <div class="timeline-date">1596</div>
+                    <div class="timeline-header">Kedatangan Belanda Pertama</div>
+                    <p>Expedisi Cornelis de Houtman tiba di Banten, memulai kontak perdagangan.</p>
+                </div>
+                <div class="timeline-item" data-year="1602">
+                    <div class="timeline-date">1602</div>
+                    <div class="timeline-header">Pendirian VOC</div>
+                    <p>Vereenigde Oost-Indische Compagnie (VOC) dibentuk sebagai perusahaan dagang monopoli.</p>
+                </div>
+                <div class="timeline-item" data-year="1619">
+                    <div class="timeline-date">1619</div>
+                    <div class="timeline-header">Pendudukan Jakarta (Batavia)</div>
+                    <p>J.P. Coen merebut Jayakarta, mendirikan Batavia sebagai pusat kekuasaan.</p>
+                </div>
+                <div class="timeline-item" data-year="1740">
+                    <div class="timeline-date">1740</div>
+                    <div class="timeline-header">Pemberontakan Cina di Batavia</div>
+                    <p>Pembantaian massal etnis Cina, menunjukkan kekerasan kolonial.</p>
+                </div>
+                <div class="timeline-item" data-year="1799">
+                    <div class="timeline-date">1799</div>
+                    <div class="timeline-header">Bangkrutnya VOC</div>
+                    <p>Pemerintah Belanda ambil alih, era Hindia Belanda dimulai.</p>
+                </div>
+                <div class="timeline-item" data-year="1830">
+                    <div class="timeline-date">1830</div>
+                    <div class="timeline-header">Tanam Paksa (Cultuurstelsel)</div>
+                    <p>Van den Bosch terapkan sistem eksploitasi perkebunan paksa.</p>
+                </div>
+                <div class="timeline-item" data-year="1870">
+                    <div class="timeline-date">1870</div>
+                    <div class="timeline-header">Undang-Undang Agraria</div>
+                    <p>Liberalisasi ekonomi, swasta Belanda kuasai perkebunan.</p>
+                </div>
+                <div class="timeline-item" data-year="1901">
+                    <div class="timeline-date">1901</div>
+                    <div class="timeline-header">Politik Etis</div>
+                    <p>Belanda janji irigasi, pendidikan, emigrasi - tapi minim pelaksanaan.</p>
+                </div>
+                <div class="timeline-item" data-year="1942">
+                    <div class="timeline-date">1942</div>
+                    <div class="timeline-header">Invasi Jepang</div>
+                    <p>Belanda menyerah, kekuasaan berpindah ke Jepang 3,5 tahun.</p>
+                </div>
+                <div class="timeline-item" data-year="1949">
+                    <div class="timeline-date">1949</div>
+                    <div class="timeline-header">KTTK & RIS</div>
+                    <p>Belanda akui kedaulatan Indonesia pada 27 Desember 1949.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="awal" class="content">
+            <h2>Awal Penjajahan (1596-1799)</h2>
+            <p>Dimulai dengan perdagangan rempah-rempah, VOC segera berubah menjadi kekuatan militer. Merebut Maluku dari Portugis, monopoli pala dan cengkeh. Perang panjang dengan Mataram dan Banten.</p>
+        </div>
+
+        <div id="puncak" class="content">
+            <h2>Puncak Kekuasaan (1800-1900)</h2>
+            <p>Tanam Paksa hasilkan keuntungan besar bagi Belanda (800 juta gulden), tapi rakyat menderita kelaparan. Perang Diponegoro (1825-1830) dan Perang Aceh (1873-1904) tunjukkan perlawanan sengit.</p>
+        </div>
+
+        <div id="akhir" class="content">
+            <h2>Akhir Penjajahan (1900-1949)</h2>
+            <p>Politik Etis gagal redam nasionalisme. Sarekat Islam, Budi Utomo, PNI bangkit. PD II melemahkan Belanda, Proklamasi 1945 percepat kemerdekaan. Agresi Militer I & II gagal.</p>
+        </div>
+
+        <div id="dampak" class="content">
+            <h2>Dampak & Warisan</h2>
+            <ul>
+                <li><strong>Ekonomi:</strong> Infrastruktur (rel, pelabuhan) tapi eksploitasi sumber daya alam.</li>
+                <li><strong>Sosial:</strong> Pendidikan terbatas, stratifikasi sosial (Eropa, Timur Asing, Pribumi).</li>
+                <li><strong>Budaya:</strong> Bahasa Belanda, arsitektur kolonial, hukum adat tercampur.</li>
+                <li><strong>Politik:</strong> Lahirnya nasionalisme modern Indonesia.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Web Sejarah Indonesia. Dibuat dengan ❤️ untuk mengenang perjuangan bangsa.</p>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            // Hide all contents
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            // Show selected
+            document.getElementById(section + '-section' || section).classList.add('active');
+            // Update nav buttons
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Animate timeline items
+            if (section === 'timeline') {
+                const items = document.querySelectorAll('.timeline-item');
+                items.forEach((item, index) => {
+                    setTimeout(() => item.classList.add('show'), index * 200);
+                });
+            }
+        }
+
+        // Auto-animate timeline on load
+        window.addEventListener('load', () => {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, index) => {
+                setTimeout(() => item.classList.add('show'), index * 200);
+            });
+        });
+    </script>
+</body>
+  </html>
